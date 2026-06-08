@@ -1,0 +1,3 @@
+anthropic>=0.106
+python-dotenv>=1.0
+elevenlabs>=2.51
