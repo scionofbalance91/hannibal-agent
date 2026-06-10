@@ -59,10 +59,13 @@ PROMPT_STRENGTH = 0.5   # with reference audio: 0 = follow text, 1 = follow audi
 def play_base64_mp3(b64):
     data = base64.b64decode(b64)
     tmp = tempfile.NamedTemporaryFile(suffix=".mp3", delete=False)
-    with tmp as f:
-        f.write(data)
-    subprocess.run(["afplay", tmp.name])
-    os.remove(tmp.name)
+    try:
+        with tmp as f:
+            f.write(data)
+        subprocess.run(["/usr/bin/afplay", tmp.name])
+    finally:
+        if os.path.exists(tmp.name):
+            os.remove(tmp.name)
 
 
 def set_env_voice_id(voice_id):

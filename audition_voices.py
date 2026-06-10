@@ -21,7 +21,7 @@ RATE = "160"  # words per minute; lower is slower and more deliberate
 
 def installed_english_voices():
     """Return [(name, locale), ...] for English voices `say` can use."""
-    out = subprocess.run(["say", "-v", "?"], capture_output=True, text=True).stdout
+    out = subprocess.run(["/usr/bin/say", "-v", "?"], capture_output=True, text=True).stdout
     voices = []
     for row in out.splitlines():
         parts = row.split()
@@ -37,7 +37,7 @@ def installed_english_voices():
 
 def say(name):
     print(f"  ♪ {name}")
-    subprocess.run(["say", "-v", name, "-r", RATE, LINE])
+    subprocess.run(["/usr/bin/say", "-v", name, "-r", RATE, "--", LINE])
 
 
 if __name__ == "__main__":

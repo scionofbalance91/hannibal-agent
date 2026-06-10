@@ -96,7 +96,7 @@ creates an original voice for him via ElevenLabs Voice Design.
 ## 🚀 Setup
 
 ```bash
-git clone https://github.com/<your-username>/hannibal-agent.git
+git clone https://github.com/scionofbalance91/hannibal-agent.git
 cd hannibal-agent
 
 python3 -m venv venv
